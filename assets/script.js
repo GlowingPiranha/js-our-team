@@ -50,9 +50,9 @@ const generateCard = (member) => {
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">${name}</h5>
-                <p class="card-text">${role}</p>
-                <p class="card-text">
+                <h5 class="card-title text-start">${name}</h5>
+                <p class="card-text text-start">${role}</p>
+                <p class="card-text text-start">
                   <a href="mailTo:${email}">${email}</a>
                 </p>
 
@@ -82,10 +82,10 @@ form.addEventListener('submit', function (e) {
   e.preventDefault();
 
   // prendo i valori dal user dal form
-  const name = document.getElementById('name').value();
-  const role = document.getElementById('role').value();
-  const email = document.getElementById('email').value();
-  const img = document.getElementById('img').value();
+  const name = document.getElementById('name').value.trim();
+  const role = document.getElementById('role').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const img = document.getElementById('img').value.trim();
 
   // creo il nuovo object membro
   const newMember = {
@@ -95,5 +95,15 @@ form.addEventListener('submit', function (e) {
     img: img
   };
 
+  // aggiungo all'array
+  teamMembers.push(newMember);
 
-})
+  // genero la nuova card riutilizzando la funzione di prima
+
+  const card = generateCard(newMember);
+  teamContainer.insertAdjacentHTML('beforeend', card)
+
+  // resetto il form dopo il submit
+  form.reset();
+
+});
