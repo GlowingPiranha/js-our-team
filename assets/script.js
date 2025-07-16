@@ -41,6 +41,7 @@ const generateCard = (member) => {
 
   const { img, name, role, email } = member;
 
+  // html delle card 
   const memberCard = `<div class="col">
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0 bg-dark text-white">
@@ -66,9 +67,11 @@ const generateCard = (member) => {
 
 const teamContainer = document.getElementById('team-members')
 
+// ciclo le card per ogni membro all'interno di teamMembers
 for (let i = 0; i < teamMembers.length; i++) {
   let card = generateCard(teamMembers[i]);
 
   teamContainer.innerHTML += card;
 }
 
+// 
