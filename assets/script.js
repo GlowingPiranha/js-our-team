@@ -74,4 +74,26 @@ for (let i = 0; i < teamMembers.length; i++) {
   teamContainer.innerHTML += card;
 }
 
-// 
+// catturo i dati del form
+
+const form = document.getElementById('add-member-form');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // prendo i valori dal user dal form
+  const name = document.getElementById('name').value();
+  const role = document.getElementById('role').value();
+  const email = document.getElementById('email').value();
+  const img = document.getElementById('img').value();
+
+  // creo il nuovo object membro
+  const newMember = {
+    name: name,
+    role: role,
+    email: email,
+    img: img
+  };
+
+
+})
